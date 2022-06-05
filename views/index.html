@@ -1,106 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" class="h-screen">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../public/css/app.css" />
+		<link rel="stylesheet" href="../public/css/bootstrap-icons.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Chat App</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/app.css">
-    <link rel="stylesheet" href="../public/css/bootstrap-icons.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
-    <title>Chat App</title>
-</head>
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+	</style>
 
-<body class="bg-slate-50 transition-all-3ms dark:bg-dark-primary h-full overflow-x-hidden">
-    <div class="w-full h-full flex-col relative">
-        <div class="hamburger absolute z-50 w-[30px] h-[15px] top-7 left-10 flex flex-col justify-between items-center cursor-pointer md:hidden">
-            <span class="w-[25px] h-[2px] bg-gray-700 dark:bg-slate-400 rounded-lg"></span>
-            <span class="w-[25px] h-[2px] bg-gray-700 dark:bg-slate-400 rounded-lg"></span>
-            <span class="w-[25px] h-[2px] bg-gray-700 dark:bg-slate-400 rounded-lg"></span>
-        </div>
-        <!-- nav bar -->
-        <nav class="transition-all-3ms z-40 absolute w-full flex p-6 pl-20 pr-20 items-center justify-between bg-slate-50 dark:bg-dark-primary border-b border-gray-200 dark:border-neutral-700">
-            <!-- Logo  -->
-            <div class="flex items-center ml-5">
-                <i class="bi bi-chat-dots-fill text-indigo-600 text-xl"></i>
-                <h1 class="font-semibold text-xl ml-4 dark:text-slate-200 transition-all-3ms">Chat App</h1>
-            </div>
-            <!-- dark mode and profile -->
-            <div class="flex items-center">
-                <h6 class="text-sm font-semibold font-sans dark:text-slate-200 mr-3 transition-all-3ms">Dark Mode</h6>
-                <span class="toggler cursor-pointer relative bg-slate-300 w-10 h-5 rounded-xl after:bg-slate-600 after:content-[''] after:w-4 after:h-4 after:rounded-full after:absolute after:top-1/2 after:left-0.5 after:translate-y-[-50%] after:transition-all after:ease-out after:duration-300">
-                </span>
-                <h6 class="hidden md:block font-normal font-sans text-sm mx-5 ml-10 dark:text-slate-200 transition-all-3ms current-username">John Doe</h6>
-                <img src="../public/img/faces/1.jpg" class="hidden md:block w-9 rounded-full current-userimage" alt="Profile">
-            </div>
-        </nav>
+	<body class="bg-slate-50 transition-all-3ms dark:bg-dark-primary h-full overflow-x-hidden">
+		<div class="w-full h-full flex-col relative">
+			<div
+				class="hamburger absolute z-50 w-[30px] h-[15px] top-7 left-10 flex flex-col justify-between items-center cursor-pointer md:hidden"
+			>
+				<span class="w-[25px] h-[2px] bg-gray-700 dark:bg-slate-400 rounded-lg"></span>
+				<span class="w-[25px] h-[2px] bg-gray-700 dark:bg-slate-400 rounded-lg"></span>
+				<span class="w-[25px] h-[2px] bg-gray-700 dark:bg-slate-400 rounded-lg"></span>
+			</div>
+			<!-- nav bar -->
+			<nav
+				class="transition-all-3ms z-40 absolute w-full flex p-6 pl-20 pr-20 items-center justify-between bg-slate-50 dark:bg-dark-primary border-b border-gray-200 dark:border-neutral-700"
+			>
+				<!-- Logo  -->
+				<div class="flex items-center ml-5">
+					<i class="bi bi-chat-dots-fill text-indigo-600 text-xl"></i>
+					<h1 class="font-semibold text-xl ml-4 dark:text-slate-200 transition-all-3ms">
+						Chat App
+					</h1>
+				</div>
+				<!-- dark mode and profile -->
+				<div class="flex items-center">
+					<h6
+						class="text-sm font-semibold font-sans dark:text-slate-200 mr-3 transition-all-3ms"
+					>
+						Dark Mode
+					</h6>
+					<span
+						class="toggler cursor-pointer relative bg-slate-300 w-10 h-5 rounded-xl after:bg-slate-600 after:content-[''] after:w-4 after:h-4 after:rounded-full after:absolute after:top-1/2 after:left-0.5 after:translate-y-[-50%] after:transition-all after:ease-out after:duration-300"
+					>
+					</span>
+					<h6
+						class="hidden md:block font-normal font-sans text-sm mx-5 ml-10 dark:text-slate-200 transition-all-3ms current-username"
+					>
+						John Doe
+					</h6>
+					<img
+						src="../public/img/faces/1.jpg"
+						class="hidden md:block w-9 rounded-full current-userimage"
+						alt="Profile"
+					/>
+				</div>
+			</nav>
 
-        <!-- Main Container -->
-        <div class="relative w-full flex h-full pt-20">
-            <div class="side-bar z-10 hidden absolute left-[-100%] md:left-0 top-0 pt-20 md:pt-0 h-full bg-slate-50 dark:bg-dark-primary md:relative w-[23rem] lg:w-[25rem] md:block border-r border-gray-200 dark:border-neutral-700 transition-all-3ms">
-                <!-- Left Side bar -->
-                <!-- Chats title -->
-                <div class="mx-5 lg:mx-10">
-                    <div class="my-8">
-                        <div class="justify-between flex items-center">
-                            <h3 class="dark:text-slate-200 transition-all-3ms text-2xl font-bold">Chats</h3>
-                            <h5 class="text-sm text-red-500 cursor-pointer logout-btn">Log out</h5>
-                        </div>
-                    </div>
+			<!-- Main Container -->
+			<div class="relative w-full flex h-full pt-20">
+				<div
+					class="side-bar z-10 hidden absolute left-[-100%] md:left-0 top-0 pt-20 md:pt-0 h-full bg-slate-50 dark:bg-dark-primary md:relative w-[23rem] lg:w-[25rem] md:block border-r border-gray-200 dark:border-neutral-700 transition-all-3ms"
+				>
+					<!-- Left Side bar -->
+					<!-- Chats title -->
+					<div class="mx-5 lg:mx-10">
+						<div class="my-8">
+							<div class="justify-between flex items-center">
+								<h3
+									class="dark:text-slate-200 transition-all-3ms text-2xl font-bold"
+								>
+									Chats
+								</h3>
+								<h5 class="text-sm text-red-500 cursor-pointer logout-btn">
+									Log out
+								</h5>
+							</div>
+						</div>
 
-                    <!-- Recipients Section -->
-                    <div class="py-5">
-                        <div class="recipient">
-                            <!-- single contact -->
+						<!-- Recipients Section -->
+						<div class="py-5">
+							<div class="recipient">
+								<!-- single contact -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="relative w-full h-full font-sans bg-indigo-50 dark:bg-dark-secondary transition-all-3ms flex items-end p-5"
+				>
+					<!-- Messages Container -->
+					<div
+						class="message-container w-11/12 max-h-full p-5 overflow-y-scroll no-scrollbar pb-20"
+					>
+						<!-- Messages will go here -->
+					</div>
 
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="relative w-full h-full font-sans bg-indigo-50 dark:bg-dark-secondary transition-all-3ms flex items-end  p-5">
-
-                <!-- Messages Container -->
-                <div class="message-container w-11/12 max-h-full p-5 overflow-y-scroll no-scrollbar pb-20">
-
-                    <!-- Messages will go here -->
-
-
-
-                </div>
-
-                <!-- Message Input Section -->
-                <div class="absolute bottom-5 w-11/12">
-                    <!-- message input form -->
-                    <form action="" method="" class="relative message-form flex">
-                        <div class="reply-viewer hidden absolute top-[-170%] left-2 bg-slate-300 rounded-xl py-5 w-11/12">
-                            <div class=" flex flex-col w-[20rem] md:w-[30rem] pl-20 relative">
-                                <div class="close-reply-btn absolute top-[-20%] left-4 cursor-pointer">
-                                    <i class="bi bi-x-circle-fill"></i>
-                                </div>
-                                <span class="text-xs ">Replying to <b class="reply-to-username"></b></span>
-                                <span class="mt-2 break-words w-[15rem] text-ellipsis overflow-hidden whitespace-nowrap md:w-[30rem]"></span>
-                            </div>
-                        </div>
-                        <input type="hidden" name="reply-src" id="reply-src" value="">
-                        <input type="hidden" name="replied-user" id="replied-user" value="">
-                        <input type="hidden" name="reply-message" id="reply-message" value="">
-                        <input type="hidden" name="hasReplied" id="hasReplied" value="">
-                        <textarea name="message" id="" class="resize-none w-full mx-2 outline-indigo-400 bg-none dark:bg-gray-500 dark:text-slate-200 transition-all-3ms rounded-md min-h-[50px] p-2 no-scrollbar text-sm" cols="30" placeholder="Message"></textarea>
-                        <button type="submit" class=""><i class="bi bi-send-fill before:rotate-45 text-indigo-500 text-xl pr-5"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
-<script src="../src/js/index.js"></script>
-
+					<!-- Message Input Section -->
+					<div class="absolute bottom-5 w-11/12">
+						<!-- message input form -->
+						<form action="" method="" class="relative message-form flex">
+							<div
+								class="reply-viewer hidden absolute top-[-170%] left-2 bg-slate-300 rounded-xl py-5 w-11/12"
+							>
+								<div class="flex flex-col w-[20rem] md:w-[30rem] pl-20 relative">
+									<div
+										class="close-reply-btn absolute top-[-20%] left-4 cursor-pointer"
+									>
+										<i class="bi bi-x-circle-fill"></i>
+									</div>
+									<span class="text-xs"
+										>Replying to <b class="reply-to-username"></b
+									></span>
+									<span
+										class="mt-2 break-words w-[15rem] text-ellipsis overflow-hidden whitespace-nowrap md:w-[30rem]"
+									></span>
+								</div>
+							</div>
+							<input type="hidden" name="reply-src" id="reply-src" value="" />
+							<input type="hidden" name="replied-user" id="replied-user" value="" />
+							<input type="hidden" name="reply-message" id="reply-message" value="" />
+							<input type="hidden" name="hasReplied" id="hasReplied" value="" />
+							<textarea
+								name="message"
+								id=""
+								class="resize-none w-full mx-2 outline-indigo-400 bg-none dark:bg-gray-500 dark:text-slate-200 transition-all-3ms rounded-md min-h-[50px] p-2 no-scrollbar text-sm"
+								cols="30"
+								placeholder="Message"
+							></textarea>
+							<button type="submit" class="">
+								<i
+									class="bi bi-send-fill before:rotate-45 text-indigo-500 text-xl pr-5"
+								></i>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+	<script src="../src/js/index.js"></script>
 </html>
