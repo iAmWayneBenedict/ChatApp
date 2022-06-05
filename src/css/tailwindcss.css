@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.transition-all-3ms {
+		@apply transition-all ease-in duration-300;
+	}
+	.transition-all-1ms {
+		@apply transition-all ease-in duration-100;
+	}
+}
+
+.bg-dark-primary {
+	background-color: rgb(32, 32, 32);
+}
+.bg-dark-secondary {
+	background-color: rgb(40, 40, 40);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}

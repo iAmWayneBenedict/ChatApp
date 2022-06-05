@@ -1,0 +1,19 @@
+{
+	"name": "chatapp",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./views/index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"tailwind": "npx tailwindcss -i src/css/tailwindcss.css -o public/css/app.css --watch",
+		"tw:build": "npx tailwindcss build src/css/tailwindcss.css -o public/css/app.css --watch"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"tailwindcss": "^3.0.0"
+	},
+	"dependencies": {
+		"bootstrap-icons": "^1.7.2"
+	}
+}
